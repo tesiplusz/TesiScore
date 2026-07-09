@@ -3,28 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TesiScore</title>
+<title>TesiScore Build003</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/panel.css">
-<link rel="stylesheet" href="css/scoreboard.css">
-<link rel="stylesheet" href="css/sevensegment.css">
 </head>
 <body>
+<div id="overlay"></div>
+<button id="gear">⚙️</button>
 
-<div id="app">
-    <header id="timer"></header>
-    <main id="scoreboard"></main>
-    <aside id="settingsPanel"></aside>
+<aside id="panel">
+<h2>Beállítások</h2>
+<label>Bal csapat<input id="ln" value="KÉKEK"></label>
+<label>Jobb csapat<input id="rn" value="PIROSAK"></label>
+<label>Idő (perc)<input id="mins" type="number" value="10"></label>
+<div class="btns">
+<button id="save">Mentés</button>
+<button id="close">Bezárás</button>
+</div>
+</aside>
+
+<div class="board">
+<div id="timer">10:00</div>
+
+<div class="teams">
+<div class="team">
+<div id="lname" class="name">KÉKEK</div>
+<div id="left" class="digits left"></div>
 </div>
 
-<script src="js/storage.js"></script>
-<script src="js/settings.js"></script>
-<script src="js/sevensegment.js"></script>
-<script src="js/timer.js"></script>
-<script src="js/scoreboard.js"></script>
-<script src="js/fullscreen.js"></script>
-<script src="js/keyboard.js"></script>
-<script src="js/app.js"></script>
+<div class="team">
+<div id="rname" class="name">PIROSAK</div>
+<div id="right" class="digits right"></div>
+</div>
+</div>
 
+<div class="controls">
+<button id="lp">+</button>
+<button id="lm">−</button>
+<button id="start">▶</button>
+<button id="reset">⟲</button>
+<button id="fs">⛶</button>
+<button id="rp">+</button>
+<button id="rm">−</button>
+</div>
+
+</div>
+
+<script src="js/app.js"></script>
 </body>
 </html>
