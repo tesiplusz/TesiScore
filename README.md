@@ -1,2 +1,7 @@
 # TesiScore
-Sport scoreboard system for schools and sport events.
+
+Projektorra optimalizált sport eredményjelző.
+
+## Fejlesztési állapot
+
+Build004 – Alkalmazás váza
