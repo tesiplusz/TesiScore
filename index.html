@@ -1,53 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hu">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TesiScore Build003</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TesiScore</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scoreboard.css">
+    <link rel="stylesheet" href="css/panel.css">
+    <link rel="stylesheet" href="css/sevensegment.css">
 </head>
+
 <body>
-<div id="overlay"></div>
-<button id="gear">⚙️</button>
 
-<aside id="panel">
-<h2>Beállítások</h2>
-<label>Bal csapat<input id="ln" value="KÉKEK"></label>
-<label>Jobb csapat<input id="rn" value="PIROSAK"></label>
-<label>Idő (perc)<input id="mins" type="number" value="10"></label>
-<div class="btns">
-<button id="save">Mentés</button>
-<button id="close">Bezárás</button>
-</div>
-</aside>
+    <!-- Beállítások -->
+    <button id="settingsButton" title="Beállítások">⚙</button>
 
-<div class="board">
-<div id="timer">10:00</div>
+    <!-- Felső óra -->
+    <header id="timerArea">
 
-<div class="teams">
-<div class="team">
-<div id="lname" class="name">KÉKEK</div>
-<div id="left" class="digits left"></div>
-</div>
+        <div id="timerDisplay">
+            10:00
+        </div>
 
-<div class="team">
-<div id="rname" class="name">PIROSAK</div>
-<div id="right" class="digits right"></div>
-</div>
-</div>
+    </header>
 
-<div class="controls">
-<button id="lp">+</button>
-<button id="lm">−</button>
-<button id="start">▶</button>
-<button id="reset">⟲</button>
-<button id="fs">⛶</button>
-<button id="rp">+</button>
-<button id="rm">−</button>
-</div>
+    <!-- Eredményjelző -->
 
-</div>
+    <main id="scoreboard">
 
-<script src="js/app.js"></script>
+        <section class="team">
+
+            <div id="teamLeftName" class="teamName">
+                KÉKEK
+            </div>
+
+           <div id="leftScore" class="score">
+                18
+            </div>
+
+        </section>
+
+        <section id="middle">
+
+            <div id="scoreSeparator">
+                :
+            </div>
+
+        </section>
+
+        <section class="team">
+
+            <div id="teamRightName" class="teamName">
+                PIROSAK
+            </div>
+
+            <div id="rightScore" class="score">
+                16
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Alsó vezérlés -->
+
+    <footer id="controls">
+
+        <div class="scoreButtons">
+
+            <button id="leftPlus">+</button>
+            <button id="leftMinus">−</button>
+
+        </div>
+
+        <div class="timeButtons">
+
+            <button id="startStop">▶</button>
+            <button id="reset">⟳</button>
+
+        </div>
+
+        <div class="scoreButtons">
+
+            <button id="rightPlus">+</button>
+            <button id="rightMinus">−</button>
+
+        </div>
+
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+<script type="module">
+
+import {
+    SevenSegmentDisplay
+}
+from "./js/sevensegment.js";
+
+const left =
+document.getElementById("leftScore");
+
+new SevenSegmentDisplay(left,18);
+
+</script>
 </body>
 </html>
