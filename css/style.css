@@ -151,3 +151,42 @@ button:hover{
         0 0 35px rgba(47,124,255,.3);
 
 }
+/* ===========================
+   Projektor mód
+=========================== */
+
+body.presentation #controls{
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+}
+
+body.presentation #settingsButton{
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+}
+
+body.presentation.show-ui #controls{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+body.presentation.show-ui #settingsButton{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}

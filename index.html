@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/scoreboard.css">
     <link rel="stylesheet" href="css/panel.css">
-    <link rel="stylesheet" href="css/sevensegment.css">
 </head>
 
 <body>
@@ -80,6 +79,7 @@
 
             <button id="startStop">▶</button>
             <button id="reset">⟳</button>
+            <button id="fullscreen">⛶</button>
 
         </div>
 
@@ -91,7 +91,30 @@
         </div>
 
     </footer>
+    <aside id="settingsPanel">
 
+    <h2>Beállítások</h2>
+
+    <label>Bal csapat</label>
+    <input id="ln" type="text" value="KÉKEK">
+
+    <label>Jobb csapat</label>
+    <input id="rn" type="text" value="PIROSAK">
+    <label>Játékidő (perc)</label>
+
+    <select id="matchTime">
+
+    <option value="5">5 perc</option>
+    <option value="10" selected>10 perc</option>
+    <option value="15">15 perc</option>
+    <option value="20">20 perc</option>
+
+</select>
+    <button id="save">
+        Mentés
+    </button>
+
+</aside>
     <script type="module" src="js/app.js"></script>
 <script type="module">
 

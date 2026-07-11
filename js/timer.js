@@ -1,63 +1,132 @@
-/**
- * Build004 Alpha
- * File: js/timer.js
- * Version: 1.0.0
- */
+export class Timer {
 
-export class MatchTimer {
-  constructor(onTick = () => {}, onFinished = () => {}) {
-    this.duration = 600;
-    this.remaining = 600;
-    this.interval = null;
-    this.running = false;
-    this.onTick = onTick;
-    this.onFinished = onFinished;
-  }
+    constructor() {
 
-  setMinutes(minutes) {
-    this.duration = Math.max(0, Number(minutes) * 60);
-    this.reset();
-  }
+        this.duration = 10 * 60;
+        this.time = this.duration;
 
-  reset() {
-    this.stop();
-    this.remaining = this.duration;
-    this.onTick(this.getTime());
-  }
+        this.running = false;
+        this.interval = null;
 
-  start() {
-    if (this.running) return;
-    this.running = true;
-    this.interval = setInterval(() => {
-      if (this.remaining > 0) {
-        this.remaining--;
-        this.onTick(this.getTime());
-      } else {
-        this.stop();
-        this.onFinished();
-      }
-    }, 1000);
-  }
+        this.display =
+            document.getElementById("timerDisplay");
+        this.button =
+            document.getElementById("startStop");
+        this.finished = false;
+        this.render();
 
-  stop() {
-    this.running = false;
-    if (this.interval) {
-      clearInterval(this.interval);
-      this.interval = null;
     }
-  }
 
-  toggle() {
-    this.running ? this.stop() : this.start();
-  }
+    render() {
 
-  getTime() {
-    const m = Math.floor(this.remaining / 60);
-    const s = this.remaining % 60;
-    return {
-      minutes: m,
-      seconds: s,
-      text: String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")
-    };
-  }
+        const minutes =
+            Math.floor(this.time / 60);
+
+        const seconds =
+            this.time % 60;
+
+        this.display.textContent =
+            `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+        if (this.finished) {
+
+        this.display.style.color = "#ff3030";
+
+} else {
+
+      this.display.style.color = "#ffd400";
+
+}
+    }
+
+    start() {
+
+        if (this.running || this.finished) return;
+
+        this.running = true;
+        this.button.textContent = "⏸";
+        this.interval = setInterval(() => {
+
+            if (this.time > 0) {
+
+                this.time--;
+
+                this.render();
+
+            } else {
+
+                this.finished = true;
+
+        this.stop();
+
+        this.render();
+
+        this.beep();
+
+            }
+
+        },1000);
+
+    }
+
+    stop() {
+
+        this.running = false;
+        this.button.textContent = "▶";
+        clearInterval(this.interval);
+
+    }
+
+    toggle() {
+
+        if (this.running)
+            this.stop();
+        else
+            this.start();
+
+    }
+
+    reset() {
+
+        this.stop();
+
+        this.time = this.duration;
+        this.finished = false;
+        this.render();
+        this.button.textContent = "▶";
+
+    }
+    setMinutes(minutes){
+
+    this.duration = minutes * 60;
+
+    this.time = this.duration;
+
+    this.finished = false;
+
+    this.render();
+
+}
+beep() {
+
+    const audio = new AudioContext();
+
+    const osc = audio.createOscillator();
+
+    const gain = audio.createGain();
+
+    osc.connect(gain);
+
+    gain.connect(audio.destination);
+
+    osc.frequency.value = 1000;
+
+    osc.type = "square";
+
+    gain.gain.value = 0.05;
+
+    osc.start();
+
+    osc.stop(audio.currentTime + 0.25);
+
+}
 }

@@ -84,3 +84,42 @@ export class SevenSegmentDigit {
     }
 
 }
+export class SevenSegmentDisplay {
+
+    constructor(parent, value = 0) {
+
+        this.parent = parent;
+
+        this.digits = [];
+
+        this.setValue(value);
+
+    }
+
+    setValue(value) {
+
+        this.parent.innerHTML = "";
+
+        this.digits = [];
+
+        const text = String(value).padStart(2, "0");
+
+        for (const digit of text) {
+
+            const holder = document.createElement("div");
+
+            holder.style.display = "inline-block";
+
+            holder.style.margin = "0 2px";
+
+            this.parent.appendChild(holder);
+
+            this.digits.push(
+                new SevenSegmentDigit(holder, digit)
+            );
+
+        }
+
+    }
+
+}
