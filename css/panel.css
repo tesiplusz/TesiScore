@@ -1,42 +1,71 @@
-/* ==========================================
-   TesiScore
-   panel.css
-========================================== */
+/*
+======================================================
+ TesiScore
+ panel.css
+ Version: 2.0
+======================================================
+*/
 
 #settingsPanel{
 
     position:fixed;
 
     top:50%;
+
     left:50%;
 
     transform:translate(-50%,-50%);
 
-    width:420px;
+    width:320px;
 
-    background:#1c1c1c;
-
-    color:white;
+    background:#202020;
 
     border-radius:18px;
 
-    padding:28px;
+    padding:22px;
 
-    box-shadow:0 0 35px rgba(0,0,0,.6);
+    box-sizing:border-box;
 
     display:none;
 
     z-index:1000;
 
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.55);
+
 }
 
 #settingsPanel h2{
 
-    margin-bottom:24px;
+    margin:0 0 18px;
 
     text-align:center;
 
+    color:white;
+
     font-size:2rem;
+
+}
+
+#settingsPanel h3{
+
+    margin:8px 0 12px;
+
+    color:#ffffff;
+
+    font-size:1.15rem;
+
+    font-weight:600;
+
+}
+
+#settingsPanel hr{
+
+    border:none;
+
+    border-top:1px solid #505050;
+
+    margin:18px 0;
 
 }
 
@@ -44,46 +73,100 @@
 
     display:block;
 
-    margin-top:18px;
-    margin-bottom:8px;
+    margin-bottom:6px;
 
-    font-weight:bold;
+    color:#e6e6e6;
+
+    font-size:.95rem;
+
+    font-weight:600;
 
 }
 
-#settingsPanel input{
+#settingsPanel input[type=text],
+#settingsPanel input[type=number],
+#settingsPanel select{
 
     width:100%;
 
-    padding:12px;
+    height:42px;
 
-    font-size:1.1rem;
+    margin-bottom:14px;
+
+    padding:0 12px;
+
+    box-sizing:border-box;
 
     border:none;
 
     border-radius:8px;
 
-    background:#303030;
+    background:#343434;
 
     color:white;
+
+    font-size:1rem;
 
 }
 
-#settingsPanel button{
+#settingsPanel input:focus,
+#settingsPanel select:focus{
 
-    width:100%;
+    outline:2px solid #3b82f6;
 
-    margin-top:28px;
+}
 
-    padding:14px;
+.checkboxRow{
 
-    font-size:1.2rem;
+    display:flex !important;
 
-    font-weight:bold;
+    align-items:center;
 
-    background:#2F80FF;
+    gap:10px;
 
-    color:white;
+    margin-top:4px;
+
+    margin-bottom:16px;
+
+    cursor:pointer;
+
+}
+
+.checkboxRow input{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:#3b82f6;
+
+}
+
+.checkboxRow span{
+
+    color:#f0f0f0;
+
+    font-weight:600;
+
+}
+
+.panelButtons{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    margin-top:22px;
+
+}
+
+.panelButtons button{
+
+    flex:1;
+
+    height:46px;
 
     border:none;
 
@@ -91,29 +174,56 @@
 
     cursor:pointer;
 
+    font-size:1rem;
+
+    font-weight:bold;
+
+    transition:.2s;
+
 }
 
-#settingsPanel button:hover{
+#cancel{
 
-    background:#5398ff;
-
-}
-#settingsPanel select{
-
-    width:100%;
-
-    padding:12px;
-
-    margin-top:8px;
-
-    font-size:1.1rem;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#303030;
+    background:#4a4a4a;
 
     color:white;
+
+}
+
+#cancel:hover{
+
+    background:#606060;
+
+}
+
+#save{
+
+    background:#2f7df6;
+
+    color:white;
+
+}
+
+#save:hover{
+
+    background:#4b92ff;
+
+}
+
+/* Fogaskerék */
+
+#settingsButton{
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+
+}
+
+#settingsButton:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 12px rgba(255,255,255,.35);
 
 }

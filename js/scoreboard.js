@@ -2,7 +2,7 @@
 ======================================================
  TesiScore
  scoreboard.js
- Version: 1.1
+ Version: 2.0
 ======================================================
 */
 
@@ -26,6 +26,11 @@ export class Scoreboard {
             document.getElementById("teamRightName");
 
         this.history = null;
+        this.sport = null;
+
+        // ÚJ:
+        // Ha true, nem lehet pontot módosítani
+        this.locked = false;
 
         this.loadSettings();
 
@@ -36,14 +41,17 @@ export class Scoreboard {
     render() {
 
         this.leftDisplay.textContent =
-            this.left;
+            String(this.left).padStart(2, "0");
 
         this.rightDisplay.textContent =
-            this.right;
+            String(this.right).padStart(2, "0");
 
     }
 
     addLeft() {
+
+        if (this.locked)
+            return;
 
         if (this.history)
             this.history.save();
@@ -52,9 +60,15 @@ export class Scoreboard {
 
         this.render();
 
+        if (this.sport)
+            this.sport.checkSet();
+
     }
 
     removeLeft() {
+
+        if (this.locked)
+            return;
 
         if (this.history)
             this.history.save();
@@ -68,6 +82,9 @@ export class Scoreboard {
 
     addRight() {
 
+        if (this.locked)
+            return;
+
         if (this.history)
             this.history.save();
 
@@ -75,9 +92,15 @@ export class Scoreboard {
 
         this.render();
 
+        if (this.sport)
+            this.sport.checkSet();
+
     }
 
     removeRight() {
+
+        if (this.locked)
+            return;
 
         if (this.history)
             this.history.save();
@@ -86,6 +109,27 @@ export class Scoreboard {
             this.right--;
 
         this.render();
+
+    }
+
+    resetPoints() {
+
+        this.left = 0;
+        this.right = 0;
+
+        this.render();
+
+    }
+
+    lock() {
+
+        this.locked = true;
+
+    }
+
+    unlock() {
+
+        this.locked = false;
 
     }
 
@@ -120,6 +164,12 @@ export class Scoreboard {
     setHistory(history) {
 
         this.history = history;
+
+    }
+
+    setSport(sport) {
+
+        this.sport = sport;
 
     }
 

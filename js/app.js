@@ -7,11 +7,18 @@ import { KeyboardControls } from "./keyboard.js";
 import { Fullscreen } from "./fullscreen.js";
 import { History } from "./history.js";
 import { SportManager } from "./sportManager.js";
+import { runSevenSegmentTest }
+from "./sevenSegmentTest.js";
+import { Volleyball } from "./sports/volleyball.js";
 const board = new Scoreboard();
 const timer = new Timer();
 const history = new History(board);
 const sportManager =
     new SportManager(timer);
+    const volleyball =
+    new Volleyball(board);
+
+board.setSport(volleyball);
 
 board.setHistory(history);
 new Controls(board);
@@ -37,6 +44,6 @@ new Fullscreen();
     // ===============================
 // Beállítások panel
 // ===============================
-sportManager.setSport("football");
-
+sportManager.setSport("volleyball");
+runSevenSegmentTest();
 

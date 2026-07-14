@@ -17,20 +17,15 @@
     <!-- Beállítások -->
     <button id="settingsButton" title="Beállítások">⚙</button>
 
-    <!-- Felső óra -->
-    <header id="timerArea">
-
-        <div id="timerDisplay">
-            10:00
-        </div>
-
-    </header>
+   
+    <div id="matchMessage"></div>
 
     <!-- Eredményjelző -->
 
     <main id="scoreboard">
 
         <section class="team">
+            <div id="leftSets" class="sets">0</div>
 
             <div id="teamLeftName" class="teamName">
                 KÉKEK
@@ -39,6 +34,7 @@
            <div id="leftScore" class="score">
                 18
             </div>
+            <div id="sevenSegmentTest"></div>
 
         </section>
 
@@ -51,6 +47,7 @@
         </section>
 
         <section class="team">
+            <div id="rightSets" class="sets">0</div>
 
             <div id="teamRightName" class="teamName">
                 PIROSAK
@@ -63,6 +60,13 @@
         </section>
 
     </main>
+    <div id="timerArea">
+
+    <div id="timerDisplay">
+        10:00
+    </div>
+
+</div>
 
     <!-- Alsó vezérlés -->
 
@@ -95,24 +99,121 @@
 
     <h2>Beállítások</h2>
 
-    <label>Bal csapat</label>
-    <input id="ln" type="text" value="KÉKEK">
+    <label for="ln">Bal csapat</label>
+    <input
+        id="ln"
+        type="text"
+        value="KÉKEK">
 
-    <label>Jobb csapat</label>
-    <input id="rn" type="text" value="PIROSAK">
-    <label>Játékidő (perc)</label>
+    <label for="rn">Jobb csapat</label>
+    <input
+        id="rn"
+        type="text"
+        value="PIROSAK">
 
-    <select id="matchTime">
+    <hr>
 
-    <option value="5">5 perc</option>
-    <option value="10" selected>10 perc</option>
-    <option value="15">15 perc</option>
-    <option value="20">20 perc</option>
+    <label for="matchTime">
+        Játékidő (perc)
+    </label>
 
-</select>
-    <button id="save">
-        Mentés
-    </button>
+    <input
+        id="matchTime"
+        type="number"
+        min="1"
+        max="999"
+        value="10">
+
+    <label class="checkboxRow">
+
+        <input
+            id="showTimer"
+            type="checkbox"
+            checked>
+
+        <span>Idő kijelzése</span>
+
+    </label>
+
+    <hr>
+
+    <label for="sportSelect">
+        Sport
+    </label>
+
+    <select id="sportSelect">
+
+        <option value="football">
+            ⚽ Foci
+        </option>
+
+        <option value="volleyball" selected>
+            🏐 Röplabda
+        </option>
+
+        <option value="basketball">
+            🏀 Kosárlabda
+        </option>
+
+        <option value="handball">
+            🤾 Kézilabda
+        </option>
+
+        <option value="floorball">
+            🏑 Floorball
+        </option>
+
+    </select>
+
+    <div id="volleyballSettings">
+
+        <hr>
+
+        <h3>Röplabda</h3>
+
+        <label for="setsToWin">
+            Győztes szettek
+        </label>
+
+        <input
+            id="setsToWin"
+            type="number"
+            min="1"
+            value="3">
+
+        <label for="pointsToWin">
+            Szett pontszám
+        </label>
+
+        <input
+            id="pointsToWin"
+            type="number"
+            min="1"
+            value="25">
+
+        <label for="lastSetPoints">
+            Döntő szett pontszáma
+        </label>
+
+        <input
+            id="lastSetPoints"
+            type="number"
+            min="1"
+            value="15">
+
+    </div>
+
+    <div class="panelButtons">
+
+        <button id="cancel">
+            Mégse
+        </button>
+
+        <button id="save">
+            Mentés
+        </button>
+
+    </div>
 
 </aside>
     <script type="module" src="js/app.js"></script>
