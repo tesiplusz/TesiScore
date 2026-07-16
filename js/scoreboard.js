@@ -5,7 +5,7 @@
  Version: 2.0
 ======================================================
 */
-
+import { SevenSegmentDisplay } from "./sevenSegmentDisplay.js";
 export class Scoreboard {
 
     constructor() {

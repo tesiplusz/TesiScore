@@ -53,6 +53,6 @@ document
 
         timer.reset();
 
-        volleyball.newSet();
+        volleyball.newMatch();
 
     });

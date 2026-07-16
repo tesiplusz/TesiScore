@@ -137,11 +137,11 @@
 
     font-size:5rem;
 
-    font-weight:bold;
+    font-weight:900;
 
     color:#FFD400;
 
-    letter-spacing:5px;
+    letter-spacing:6px;
 
 }
 /* ==========================================
@@ -152,39 +152,40 @@
 
     position:fixed;
 
+    left:50%;
     top:50%;
 
-    left:50%;
-
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%) scale(.9);
 
     min-width:420px;
 
-    padding:20px 40px;
+    padding:22px 50px;
 
     border-radius:18px;
 
-    background:
-        rgba(0,0,0,.82);
+    background:rgba(0,0,0,.88);
 
     border:3px solid #FFD700;
 
     color:#FFD700;
 
-    font-size:3rem;
+    font-size:3.2rem;
 
-    font-weight:bold;
+    font-weight:900;
 
     text-align:center;
 
-    z-index:5000;
+    letter-spacing:2px;
+
+    z-index:9999;
 
     display:none;
 
     box-shadow:
-        0 0 35px rgba(255,215,0,.35);
+        0 0 40px rgba(255,215,0,.45);
 
-    backdrop-filter:blur(6px);
+    transition:
+        opacity .25s,
+        transform .25s;
 
 }
