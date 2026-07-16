@@ -7,8 +7,6 @@ import { KeyboardControls } from "./keyboard.js";
 import { Fullscreen } from "./fullscreen.js";
 import { History } from "./history.js";
 import { SportManager } from "./sportManager.js";
-import { runSevenSegmentTest }
-from "./sevenSegmentTest.js";
 import { Volleyball } from "./sports/volleyball.js";
 const board = new Scoreboard();
 const timer = new Timer();
@@ -45,5 +43,16 @@ new Fullscreen();
 // Beállítások panel
 // ===============================
 sportManager.setSport("volleyball");
-runSevenSegmentTest();
+// =====================================
+// Reset = Új szett
+// =====================================
 
+document
+    .getElementById("reset")
+    .addEventListener("click", () => {
+
+        timer.reset();
+
+        volleyball.newSet();
+
+    });

@@ -64,13 +64,23 @@ body{
 
 #controls{
 
-    height:18vh;
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:25px;
 
     display:flex;
 
     justify-content:space-evenly;
 
     align-items:center;
+
+    z-index:1000;
+
+    transition:
+        opacity .3s,
+        transform .3s;
 
 }
 
@@ -159,9 +169,9 @@ body.presentation #controls{
 
     opacity:0;
 
-    pointer-events:none;
+    transform:translateY(120px);
 
-    transition:.3s;
+    pointer-events:none;
 
 }
 
@@ -178,6 +188,8 @@ body.presentation #settingsButton{
 body.presentation.show-ui #controls{
 
     opacity:1;
+
+    transform:translateY(0);
 
     pointer-events:auto;
 

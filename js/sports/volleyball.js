@@ -136,7 +136,15 @@ export class Volleyball {
         return false;
 
     }
+newSet() {
 
+    this.board.resetPoints();
+
+    this.board.unlock();
+
+    this.setFinished = false;
+
+}
     newMatch() {
 
         this.leftSets = 0;

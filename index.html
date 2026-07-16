@@ -17,8 +17,6 @@
     <!-- Beállítások -->
     <button id="settingsButton" title="Beállítások">⚙</button>
 
-   
-    <div id="matchMessage"></div>
 
     <!-- Eredményjelző -->
 
@@ -31,9 +29,7 @@
                 KÉKEK
             </div>
 
-           <div id="leftScore" class="score">
-                18
-            </div>
+           <div id="leftScore" class="score"></div>
             <div id="sevenSegmentTest"></div>
 
         </section>
@@ -53,13 +49,16 @@
                 PIROSAK
             </div>
 
-            <div id="rightScore" class="score">
-                16
-            </div>
+            <div id="rightScore" class="score"></div>
 
         </section>
 
     </main>
+    <div id="matchMessage" class="matchMessage">
+
+    ÜZENET
+
+</div>
     <div id="timerArea">
 
     <div id="timerDisplay">
@@ -104,12 +103,37 @@
         id="ln"
         type="text"
         value="KÉKEK">
+<label for="leftColor">
+    Bal pontszín
+</label>
 
+<select id="leftColor">
+
+    <option value="#2F80FF" selected>Kék</option>
+    <option value="#FF4040">Piros</option>
+    <option value="#00C853">Zöld</option>
+    <option value="#FFD400">Sárga</option>
+    <option value="#FFFFFF">Fehér</option>
+
+</select>
     <label for="rn">Jobb csapat</label>
     <input
         id="rn"
         type="text"
         value="PIROSAK">
+        <label for="rightColor">
+    Jobb pontszín
+</label>
+
+<select id="rightColor">
+
+    <option value="#FF4040" selected>Piros</option>
+    <option value="#2F80FF">Kék</option>
+    <option value="#00C853">Zöld</option>
+    <option value="#FFD400">Sárga</option>
+    <option value="#FFFFFF">Fehér</option>
+
+</select>
 
     <hr>
 

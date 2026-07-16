@@ -81,10 +81,12 @@ export class SevenSegmentDigit {
         ? this.color
         : this.offColor
 );
-if(map[index]){
+if (map[index]) {
 
-    rect.style.filter =
-        "drop-shadow(0 0 6px rgba(47,128,255,.8))";
+    rect.style.filter = `
+        drop-shadow(0 0 6px ${this.color})
+        drop-shadow(0 0 12px ${this.color})
+    `;
 
 }
 

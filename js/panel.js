@@ -97,11 +97,22 @@ export class SettingsPanel {
 
         this.board.saveSettings(
 
-            document.getElementById("ln").value.trim() || "KÉKEK",
+    document.getElementById("ln").value,
 
-            document.getElementById("rn").value.trim() || "PIROSAK"
+    document.getElementById("rn").value,
 
-        );
+    document.getElementById("leftColor").value,
+
+    document.getElementById("rightColor").value
+
+);
+        this.board.setColors(
+
+    document.getElementById("leftColor").value,
+
+    document.getElementById("rightColor").value
+
+);
 
         // -----------------------
         // Játékidő

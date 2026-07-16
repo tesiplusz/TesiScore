@@ -18,14 +18,6 @@ export class TimerControls {
 
             });
 
-        document
-            .getElementById("reset")
-            .addEventListener("click", () => {
-
-                this.timer.reset();
-
-            });
-
     }
 
 }
