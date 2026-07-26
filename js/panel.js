@@ -8,10 +8,11 @@
 
 export class SettingsPanel {
 
-    constructor(board, timer) {
+    constructor(board, timer, themeManager) {
 
-        this.board = board;
-        this.timer = timer;
+    this.board = board;
+    this.timer = timer;
+    this.themeManager = themeManager;
 
         this.panel =
             document.getElementById("settingsPanel");
@@ -84,6 +85,8 @@ export class SettingsPanel {
             this.board.rightName.textContent;
 
         this.panel.style.display = "block";
+        document.getElementById("themeSelect").value =
+    this.themeManager.getTheme();
 
     }
 
@@ -97,11 +100,27 @@ export class SettingsPanel {
 
         this.board.saveSettings(
 
-            document.getElementById("ln").value.trim() || "KÉKEK",
+    document.getElementById("ln").value,
 
-            document.getElementById("rn").value.trim() || "PIROSAK"
+    document.getElementById("rn").value,
 
-        );
+    document.getElementById("leftColor").value,
+
+    document.getElementById("rightColor").value
+
+);
+        this.board.setColors(
+
+    document.getElementById("leftColor").value,
+
+    document.getElementById("rightColor").value
+
+);
+this.themeManager.setTheme(
+
+    document.getElementById("themeSelect").value
+
+);
 
         // -----------------------
         // Játékidő

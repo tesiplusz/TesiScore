@@ -120,6 +120,7 @@ export class Volleyball {
         if (this.leftSets >= this.setsToWin) {
 
             this.showMessage("🏆 KÉKEK GYŐZTEK!");
+            this.finished = true;
 
             return true;
 
@@ -128,6 +129,7 @@ export class Volleyball {
         if (this.rightSets >= this.setsToWin) {
 
             this.showMessage("🏆 PIROSAK GYŐZTEK!");
+            this.finished = true;
 
             return true;
 
@@ -136,22 +138,36 @@ export class Volleyball {
         return false;
 
     }
+newSet() {
 
-    newMatch() {
+    this.board.resetPoints();
 
-        this.leftSets = 0;
-        this.rightSets = 0;
+    this.board.unlock();
 
-        this.renderSets();
+    this.setFinished = false;
 
-        this.board.resetPoints();
+}
+   newMatch() {
 
-        this.board.unlock();
+    this.leftSets = 0;
+    this.rightSets = 0;
 
-        this.setFinished = false;
+    this.finished = false;
+    this.setFinished = false;
+
+    this.renderSets();
+
+    this.board.resetPoints();
+
+    this.board.unlock();
+
+    if (this.message) {
+
+        this.message.style.display = "none";
 
     }
 
+}
     renderSets() {
 
         this.leftSetsDisplay.textContent =
@@ -170,6 +186,13 @@ export class Volleyball {
         this.message.textContent = text;
 
         this.message.style.display = "block";
+
+requestAnimationFrame(() => {
+
+    this.message.style.transform =
+        "translate(-50%,-50%) scale(1)";
+
+});
 
         clearTimeout(this.messageTimer);
 

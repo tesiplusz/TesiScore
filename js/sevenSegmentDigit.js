@@ -21,6 +21,8 @@ export class SevenSegmentDigit {
 
         this.offColor =
             options.offColor || "#102040";
+    this.glow =
+    options.glow ?? true;
 
     }
 
@@ -46,8 +48,8 @@ export class SevenSegmentDigit {
             );
 
         svg.setAttribute("viewBox","0 0 220 340");
-        svg.setAttribute("width","250");
-        svg.setAttribute("height","380");
+        svg.setAttribute("width","290");
+        svg.setAttribute("height","440");
 
         const segments = [
 
@@ -81,10 +83,14 @@ export class SevenSegmentDigit {
         ? this.color
         : this.offColor
 );
-if(map[index]){
+if (map[index] && this.glow) {
 
     rect.style.filter =
-        "drop-shadow(0 0 6px rgba(47,128,255,.8))";
+        `drop-shadow(0 0 4px ${this.color})`;
+
+} else {
+
+    rect.style.filter = "none";
 
 }
 

@@ -5,19 +5,24 @@
  Version: 2.0
 ======================================================
 */
-
+import { DisplayManager } from "./display/displayManager.js";
 export class Scoreboard {
 
     constructor() {
 
-        this.left = 18;
-        this.right = 16;
+        this.left = 0;
+        this.right = 0;
 
         this.leftDisplay =
             document.getElementById("leftScore");
 
-        this.rightDisplay =
-            document.getElementById("rightScore");
+       this.rightDisplay =
+    document.getElementById("rightScore");
+
+this.display = new DisplayManager(
+    this.leftDisplay,
+    this.rightDisplay
+);
 
         this.leftName =
             document.getElementById("teamLeftName");
@@ -32,23 +37,30 @@ export class Scoreboard {
         // Ha true, nem lehet pontot módosítani
         this.locked = false;
 
-        this.loadSettings();
+      this.loadSettings();
 
-        this.render();
+// Biztosan állítsuk be a kijelző színeit
+this.setColors(
+    localStorage.getItem("leftColor") || "#2F80FF",
+    localStorage.getItem("rightColor") || "#FF4040"
+);
+
+this.render();
 
     }
-
+   
     render() {
 
-        this.leftDisplay.textContent =
-            String(this.left).padStart(2, "0");
+    this.display.render(
+        this.left,
+        this.right
+    );
 
-        this.rightDisplay.textContent =
-            String(this.right).padStart(2, "0");
-
-    }
+}
 
     addLeft() {
+        if(this.sport?.finished)
+    return;
 
         if (this.locked)
             return;
@@ -81,6 +93,8 @@ export class Scoreboard {
     }
 
     addRight() {
+        if(this.sport?.finished)
+    return;
 
         if (this.locked)
             return;
@@ -146,20 +160,38 @@ export class Scoreboard {
 
         if (right)
             this.rightName.textContent = right;
+        const leftColor =
+    localStorage.getItem("leftColor");
+
+const rightColor =
+    localStorage.getItem("rightColor");
+
+this.setColors(
+
+    leftColor || "#2F80FF",
+
+    rightColor || "#FF4040"
+
+);
 
     }
 
-    saveSettings(left, right) {
+    saveSettings(left, right, leftColor, rightColor) {
+        console.log("Mentés:", left, right);
 
-        localStorage.setItem("leftTeam", left);
 
-        localStorage.setItem("rightTeam", right);
+    localStorage.setItem("leftTeam", left);
+    localStorage.setItem("rightTeam", right);
 
-        this.leftName.textContent = left;
+    localStorage.setItem("leftColor", leftColor);
+    localStorage.setItem("rightColor", rightColor);
 
-        this.rightName.textContent = right;
+    this.leftName.textContent = left;
+    this.rightName.textContent = right;
 
-    }
+    this.setColors(leftColor, rightColor);
+
+}
 
     setHistory(history) {
 
@@ -170,7 +202,30 @@ export class Scoreboard {
     setSport(sport) {
 
         this.sport = sport;
+        
 
     }
+    getSport() {
+
+    return this.sport;
 
 }
+
+setColors(leftColor, rightColor) {
+
+    console.log("Bal:", leftColor, "Jobb:", rightColor);
+
+    this.display.setColors(
+        leftColor,
+        rightColor
+    );
+
+}
+setTheme(themeName) {
+
+    this.display.setTheme(themeName);
+
+}
+
+}
+

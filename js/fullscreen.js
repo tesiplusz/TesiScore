@@ -2,7 +2,7 @@
 ======================================================
  TesiScore
  fullscreen.js
- Version: 1.0
+ Version: 2.0
 ======================================================
 */
 
@@ -60,6 +60,22 @@ export class Fullscreen {
 
         });
 
+        document.addEventListener("fullscreenchange", () => {
+
+            if (document.fullscreenElement) {
+
+                document.body.classList.add("presentation");
+                document.body.classList.add("show-ui");
+
+            } else {
+
+                document.body.classList.remove("presentation");
+                document.body.classList.remove("show-ui");
+
+            }
+
+        });
+
     }
 
     async toggle() {
@@ -70,14 +86,9 @@ export class Fullscreen {
 
                 await document.documentElement.requestFullscreen();
 
-                document.body.classList.add("presentation");
-
             } else {
 
                 await document.exitFullscreen();
-
-                document.body.classList.remove("presentation");
-                document.body.classList.remove("show-ui");
 
             }
 

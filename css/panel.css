@@ -18,6 +18,10 @@
 
     width:320px;
 
+    max-height:90vh;
+
+    overflow-y:auto;
+
     background:#202020;
 
     border-radius:18px;

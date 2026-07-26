@@ -5,14 +5,43 @@
  v0.1
 ======================================================
 */
+const DIGITS = {
+    "0":[1,1,1,1,1,1,0],
+    "1":[0,1,1,0,0,0,0],
+    "2":[1,1,0,1,1,0,1],
+    "3":[1,1,1,1,0,0,1],
+    "4":[0,1,1,0,0,1,1],
+    "5":[1,0,1,1,0,1,1],
+    "6":[1,0,1,1,1,1,1],
+    "7":[1,1,1,0,0,0,0],
+    "8":[1,1,1,1,1,1,1],
+    "9":[1,1,1,1,0,1,1]
+};
 
+const THEMES = {
+
+    dark:{
+        on:"#2F80FF",
+        off:"#09101d",
+        glow:true
+    },
+
+    light:{
+        on:"#2F80FF",
+        off:"#00FF00",
+        glow:false
+    }
+
+};
 export class SevenSegmentDigit {
 
-    constructor(parent, value = "8") {
-        this.parent = parent;
-        this.value = String(value);
+   constructor(parent, value = "8", theme = "dark") {
 
-        this.render();
+    this.parent = parent;
+    this.value = String(value);
+    this.theme = theme;
+
+    this.render();
     }
 
     render() {

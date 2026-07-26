@@ -14,11 +14,42 @@ html,body{
     width:100%;
     height:100%;
 }
+/* ==========================
+        Témák
+========================== */
 
+body.dark{
+
+    --background:#000;
+
+    --text:#ffffff;
+
+    --button:#202020;
+
+    --buttonHover:#444444;
+
+    --timer:#ffd400;
+
+}
+
+body.light{
+
+    --background:#b0c2d0;
+
+    --text:#111111;
+
+    --button:#d8d8d8;
+
+    --buttonHover:#bbbbbb;
+
+     --timer:#C58F00;
+
+}
 body{
 
-    background:#000;
-    color:white;
+    background:var(--background);
+
+    color:var(--text);
 
     font-family:Arial,Helvetica,sans-serif;
 
@@ -26,6 +57,10 @@ body{
     flex-direction:column;
 
     overflow:hidden;
+
+    transition:
+        background .25s,
+        color .25s;
 
 }
 
@@ -42,6 +77,7 @@ body{
 
     justify-content:center;
     align-items:center;
+    padding-top:0px;
 
 }
 
@@ -51,7 +87,7 @@ body{
 
     font-weight:bold;
 
-    color:#ffd400;
+    color:var(--timer);
 
     letter-spacing:4px;
 
@@ -64,13 +100,23 @@ body{
 
 #controls{
 
-    height:18vh;
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0px;
 
     display:flex;
 
     justify-content:space-evenly;
 
     align-items:center;
+
+    z-index:1000;
+
+    transition:
+        opacity .3s,
+        transform .3s;
 
 }
 
@@ -87,9 +133,9 @@ body{
 
 button{
 
-    width:64px;
+    width:60px;
 
-    height:64px;
+    height:60px;
 
     font-size:2rem;
 
@@ -99,9 +145,9 @@ button{
 
     cursor:pointer;
 
-    background:#202020;
+    background:var(--button);
 
-    color:white;
+    color:var(--text);
 
     transition:.2s;
 
@@ -110,7 +156,7 @@ button{
 
 button:hover{
 
-    background:#444;
+    background:var(--buttonHover);
 
 }
 
@@ -159,9 +205,9 @@ body.presentation #controls{
 
     opacity:0;
 
-    pointer-events:none;
+    transform:translateY(120px);
 
-    transition:.3s;
+    pointer-events:none;
 
 }
 
@@ -178,6 +224,8 @@ body.presentation #settingsButton{
 body.presentation.show-ui #controls{
 
     opacity:1;
+
+    transform:translateY(0);
 
     pointer-events:auto;
 
