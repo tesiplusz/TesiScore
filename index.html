@@ -26,7 +26,7 @@
             <div id="leftSets" class="sets">0</div>
 
             <div id="teamLeftName" class="teamName">
-                KÉKEK
+                A csapat
             </div>
 
            <div id="leftScore" class="score"></div>
@@ -45,7 +45,7 @@
             <div id="rightSets" class="sets">0</div>
 
             <div id="teamRightName" class="teamName">
-                PIROSAK
+                B csapat
             </div>
 
             <div id="rightScore" class="score"></div>
@@ -164,30 +164,36 @@
         Sport
     </label>
 
-    <select id="sportSelect">
+   <select id="sportSelect">
 
-        <option value="football">
-            ⚽ Foci
-        </option>
+   <option value="simple" selected>
+    🏅 Egyszerű pontszámláló
+</option>
 
-        <option value="volleyball" selected>
-            🏐 Röplabda
-        </option>
+<option value="volleyball">
+    🏐 Röplabda
+</option>
 
-        <option value="basketball">
-            🏀 Kosárlabda
-        </option>
+</select>
+<hr>
 
-        <option value="handball">
-            🤾 Kézilabda
-        </option>
+<h3>Megjelenés</h3>
 
-        <option value="floorball">
-            🏑 Floorball
-        </option>
+<label for="themeSelect">
+    Téma
+</label>
 
-    </select>
+<select id="themeSelect">
 
+    <option value="dark">
+        🌙 Sötét
+    </option>
+
+    <option value="light">
+        ☀️ Világos
+    </option>
+
+</select>
     <div id="volleyballSettings">
 
         <hr>
@@ -240,18 +246,6 @@
 
 </aside>
     <script type="module" src="js/app.js"></script>
-<script type="module">
 
-import {
-    SevenSegmentDisplay
-}
-from "./js/sevensegment.js";
-
-const left =
-document.getElementById("leftScore");
-
-new SevenSegmentDisplay(left,18);
-
-</script>
 </body>
 </html>

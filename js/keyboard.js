@@ -20,49 +20,50 @@ export class KeyboardControls {
 
     init() {
 
-        document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", (e) => {
 
-            switch (e.key.toLowerCase()) {
+        // Ha beviteli mezőben gépelünk,
+        // a gyorsbillentyűk ne működjenek.
+        if (e.target.matches("input, textarea, select")) {
+            return;
+        }
 
-                case "a":
-                    this.board.addLeft();
-                    break;
+        switch (e.key.toLowerCase()) {
 
-                case "y":
-                    this.board.removeLeft();
-                    break;
+            case "a":
+                this.board.addLeft();
+                break;
 
-                case "k":
-                    this.board.addRight();
-                    break;
+            case "y":
+                this.board.removeLeft();
+                break;
 
-                case "m":
-                    this.board.removeRight();
-                    break;
+            case "k":
+                this.board.addRight();
+                break;
 
-                case "r":
-                    this.timer.reset();
-                    break;
+            case "m":
+                this.board.removeRight();
+                break;
 
-                case "u":
+            case "r":
+                this.timer.reset();
+                break;
 
-                    if (this.history)
-                        this.history.undo();
+            case "u":
+                if (this.history)
+                    this.history.undo();
+                break;
 
-                    break;
+            case " ":
+                e.preventDefault();
+                this.timer.toggle();
+                break;
 
-                case " ":
+        }
 
-                    e.preventDefault();
+    });
 
-                    this.timer.toggle();
-
-                    break;
-
-            }
-
-        });
-
-    }
+}
 
 }

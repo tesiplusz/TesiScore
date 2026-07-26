@@ -5,19 +5,24 @@
  Version: 2.0
 ======================================================
 */
-import { SevenSegmentDisplay } from "./sevenSegmentDisplay.js";
+import { DisplayManager } from "./display/displayManager.js";
 export class Scoreboard {
 
     constructor() {
 
-        this.left = 18;
-        this.right = 16;
+        this.left = 0;
+        this.right = 0;
 
         this.leftDisplay =
             document.getElementById("leftScore");
 
-        this.rightDisplay =
-            document.getElementById("rightScore");
+       this.rightDisplay =
+    document.getElementById("rightScore");
+
+this.display = new DisplayManager(
+    this.leftDisplay,
+    this.rightDisplay
+);
 
         this.leftName =
             document.getElementById("teamLeftName");
@@ -32,28 +37,26 @@ export class Scoreboard {
         // Ha true, nem lehet pontot módosítani
         this.locked = false;
 
-        this.loadSettings();
-            this.setColors(
+      this.loadSettings();
 
-        "#2F80FF",
+// Biztosan állítsuk be a kijelző színeit
+this.setColors(
+    localStorage.getItem("leftColor") || "#2F80FF",
+    localStorage.getItem("rightColor") || "#FF4040"
+);
 
-        "#FF4040"
-
-    );
-
-        this.render();
+this.render();
 
     }
    
     render() {
 
-        this.leftDisplay.textContent =
-            String(this.left).padStart(2, "0");
+    this.display.render(
+        this.left,
+        this.right
+    );
 
-        this.rightDisplay.textContent =
-            String(this.right).padStart(2, "0");
-
-    }
+}
 
     addLeft() {
         if(this.sport?.finished)
@@ -174,6 +177,8 @@ this.setColors(
     }
 
     saveSettings(left, right, leftColor, rightColor) {
+        console.log("Mentés:", left, right);
+
 
     localStorage.setItem("leftTeam", left);
     localStorage.setItem("rightTeam", right);
@@ -197,15 +202,30 @@ this.setColors(
     setSport(sport) {
 
         this.sport = sport;
+        
 
     }
+    getSport() {
 
-setColors(leftColor, rightColor){
-
-    this.leftDisplay.style.color = leftColor;
-
-    this.rightDisplay.style.color = rightColor;
+    return this.sport;
 
 }
+
+setColors(leftColor, rightColor) {
+
+    console.log("Bal:", leftColor, "Jobb:", rightColor);
+
+    this.display.setColors(
+        leftColor,
+        rightColor
+    );
+
+}
+setTheme(themeName) {
+
+    this.display.setTheme(themeName);
+
+}
+
 }
 

@@ -18,28 +18,28 @@ export class History {
 
     save() {
 
-        this.stack.push({
+    this.stack.push({
 
-            left: this.board.leftScore,
+        left: this.board.left,
 
-            right: this.board.rightScore
+        right: this.board.right
 
-        });
+    });
 
-    }
+}
 
     undo() {
 
-        if(this.stack.length===0)
-            return;
+    if (this.stack.length === 0)
+        return;
 
-        const last=this.stack.pop();
+    const last = this.stack.pop();
 
-        this.board.leftScore=last.left;
-        this.board.rightScore=last.right;
+    this.board.left = last.left;
+    this.board.right = last.right;
 
-        this.board.render();
+    this.board.render();
 
-    }
+}
 
 }

@@ -33,7 +33,7 @@ export class Timer {
 
 } else {
 
-      this.display.style.color = "#ffd400";
+     this.display.style.color = "#D9A400";
 
 }
     }

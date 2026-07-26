@@ -2,7 +2,7 @@
 ======================================================
  TesiScore
  SportManager
- Version: 1.0
+ Version: 2.0
 ======================================================
 */
 
@@ -11,8 +11,7 @@ export class SportManager {
     constructor(timer) {
 
         this.timer = timer;
-
-        this.currentSport = "football";
+        this.currentSport = "simple";
 
     }
 
@@ -22,27 +21,15 @@ export class SportManager {
 
         switch (sport) {
 
-            case "football":
+            case "simple":
 
-                this.timer.setMinutes(45);
+                this.timer.setMinutes(10);
 
                 break;
 
             case "volleyball":
 
                 this.timer.setMinutes(10);
-
-                break;
-
-            case "basketball":
-
-                this.timer.setMinutes(10);
-
-                break;
-
-            case "handball":
-
-                this.timer.setMinutes(30);
 
                 break;
 
