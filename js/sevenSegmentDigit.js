@@ -47,9 +47,8 @@ export class SevenSegmentDigit {
                 "svg"
             );
 
-        svg.setAttribute("viewBox","0 0 220 340");
-        svg.setAttribute("width","290");
-        svg.setAttribute("height","440");
+       svg.setAttribute("viewBox","0 0 220 340");
+svg.setAttribute("class","digitSvg");
 
         const segments = [
 

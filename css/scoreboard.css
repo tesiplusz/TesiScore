@@ -2,16 +2,33 @@
    TesiScore
    scoreboard.css
 ========================================== */
+:root{
+    --digit-width: 290px;
 
+    --team-font-size: 2rem;
+    --timer-font-size: 7rem;
+
+    --button-size: 60px;
+
+    --score-gap: 120px;
+
+    --sets-width: 92px;
+    --sets-height: 64px;
+}
 /* Az eredményjelző legyen szélesebb */
 #scoreboard{
     width:100%;
     max-width:1800px;
     margin:auto;
 
+    padding:0 2vw;
+
     display:grid;
-    grid-template-columns:1fr auto 1fr;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+
     align-items:center;
+
+    column-gap:clamp(10px,2vw,60px);
 }
 
 /* Csapatok */
@@ -20,11 +37,13 @@
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
+    min-width:0;
 }
 
 /* Csapatnevek */
 .teamName{
-    font-size:2rem;
+    font-size:var(--team-font-size);
     font-weight:700;
     letter-spacing:3px;
     margin-bottom:30px;
@@ -92,9 +111,8 @@
 
     align-items:center;
 
-    width:92px;
-
-    height:64px;
+    width:var(--sets-width);
+height:var(--sets-height);
 
     margin-bottom:42px;
 
@@ -135,8 +153,7 @@
 
 #timerDisplay{
 
-    font-size:7rem;
-
+    font-size:var(--timer-font-size);
     font-weight:900;
 
     color:#FFD400;
@@ -187,5 +204,64 @@
     transition:
         opacity .25s,
         transform .25s;
+
+}
+.digitSvg{
+    width: var(--digit-width);
+    height: auto;
+
+    display: block;
+
+    min-width: 0;
+    max-width: 100%;
+    flex-shrink: 1;
+}
+/* ==========================================
+   Laptop
+========================================== */
+
+@media (max-width: 1600px){
+
+    :root{
+
+        --digit-width: 240px;
+        --timer-font-size: 6rem;
+        --team-font-size: 1.8rem;
+
+    }
+
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width: 1200px){
+
+    :root{
+
+        --digit-width: 190px;
+        --timer-font-size: 5rem;
+        --team-font-size: 1.5rem;
+
+    }
+
+}
+
+/* ==========================================
+   Mobil
+========================================== */
+
+@media (max-width: 768px){
+
+    :root{
+
+        --digit-width: 130px;
+        --timer-font-size: 3.5rem;
+        --team-font-size: 1.2rem;
+
+        --button-size: 52px;
+
+    }
 
 }
