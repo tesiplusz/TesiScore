@@ -24,8 +24,7 @@ const sports = {
     volleyball: new Volleyball(board)
     
 };
-const themeManager =
-    new ThemeManager();
+const themeManager = new ThemeManager();
     document.addEventListener(
     "themeChanged",
     (event) => {
@@ -61,7 +60,8 @@ new UiScale();
 const sportSelect = document.getElementById("sportSelect");
 const volleyballSettings =
     document.getElementById("volleyballSettings");
-    const leftSets =
+
+const leftSets =
     document.getElementById("leftSets");
 
 const rightSets =

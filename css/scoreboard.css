@@ -6,13 +6,15 @@
 
     --ui-scale: 1;
 
---digit-width: calc(290px * var(--ui-scale));
---team-font-size: calc(2rem * var(--ui-scale));
---timer-font-size: calc(7rem * var(--ui-scale));
---button-size: calc(60px * var(--ui-scale));
---score-gap: calc(120px * var(--ui-scale));
---sets-width: calc(92px * var(--ui-scale));
---sets-height: calc(64px * var(--ui-scale));
+    --digit-width: calc(290px * var(--ui-scale));
+    --team-font-size: calc(2rem * var(--ui-scale));
+    --timer-font-size: calc(7rem * var(--ui-scale));
+    --button-size: calc(60px * var(--ui-scale));
+
+    --score-gap: calc(120px * var(--ui-scale));
+
+    --sets-width: calc(92px * var(--ui-scale));
+    --sets-height: calc(64px * var(--ui-scale));
 
 }
 /* Az eredményjelző legyen szélesebb */
@@ -51,17 +53,6 @@
 }
 
 /* Pontszámok */
-.score{
-
-    font-size:15rem;
-
-    font-weight:900;
-
-    line-height:1;
-
-    user-select:none;
-
-}
 
 /* Bal pontszám */
 #leftScore{
