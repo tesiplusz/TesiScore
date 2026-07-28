@@ -11,6 +11,7 @@ import { SportManager } from "./sportManager.js";
 import { Volleyball } from "./sports/volleyball.js";
 import { SimpleScore } from "./sports/simpleScore.js";
 import { ThemeManager } from "./themeManager.js";
+import { UiScale } from "./uiScale.js";
 
 const board = new Scoreboard();
 const timer = new Timer();
@@ -50,6 +51,7 @@ new SettingsPanel(
 );
 new KeyboardControls(board, timer, history);
 new Fullscreen();
+new UiScale();
 
 
 //==============================
