@@ -2,16 +2,35 @@
    TesiScore
    scoreboard.css
 ========================================== */
+:root{
 
+    --ui-scale: 1;
+
+    --digit-width: calc(290px * var(--ui-scale));
+    --team-font-size: calc(2rem * var(--ui-scale));
+    --timer-font-size: calc(7rem * var(--ui-scale));
+    --button-size: calc(60px * var(--ui-scale));
+
+    --score-gap: calc(120px * var(--ui-scale));
+
+    --sets-width: calc(92px * var(--ui-scale));
+    --sets-height: calc(64px * var(--ui-scale));
+
+}
 /* Az eredményjelző legyen szélesebb */
 #scoreboard{
     width:100%;
     max-width:1800px;
     margin:auto;
 
+    padding:0 2vw;
+
     display:grid;
-    grid-template-columns:1fr auto 1fr;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+
     align-items:center;
+
+    column-gap:clamp(10px,2vw,60px);
 }
 
 /* Csapatok */
@@ -20,11 +39,13 @@
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
+    min-width:0;
 }
 
 /* Csapatnevek */
 .teamName{
-    font-size:2rem;
+    font-size:var(--team-font-size);
     font-weight:700;
     letter-spacing:3px;
     margin-bottom:30px;
@@ -32,17 +53,6 @@
 }
 
 /* Pontszámok */
-.score{
-
-    font-size:15rem;
-
-    font-weight:900;
-
-    line-height:1;
-
-    user-select:none;
-
-}
 
 /* Bal pontszám */
 #leftScore{
@@ -92,9 +102,8 @@
 
     align-items:center;
 
-    width:92px;
-
-    height:64px;
+    width:var(--sets-width);
+height:var(--sets-height);
 
     margin-bottom:42px;
 
@@ -135,8 +144,7 @@
 
 #timerDisplay{
 
-    font-size:7rem;
-
+    font-size:var(--timer-font-size);
     font-weight:900;
 
     color:#FFD400;
@@ -188,4 +196,14 @@
         opacity .25s,
         transform .25s;
 
+}
+.digitSvg{
+    width: var(--digit-width);
+    height: auto;
+
+    display: block;
+
+    min-width: 0;
+    max-width: 100%;
+    flex-shrink: 1;
 }

@@ -69,29 +69,7 @@ body{
         FELSŐ ÓRA
 ========================== */
 
-#timerArea{
 
-    height:18vh;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-    padding-top:0px;
-
-}
-
-#timerDisplay{
-
-    font-size:4rem;
-
-    font-weight:bold;
-
-    color:var(--timer);
-
-    letter-spacing:4px;
-
-}
 
 
 /* ==========================
@@ -104,7 +82,7 @@ body{
 
     left:0;
     right:0;
-    bottom:0px;
+    bottom:max(10px, calc(12px * var(--ui-scale)));
 
     display:flex;
 
@@ -126,18 +104,18 @@ body{
 
     display:flex;
 
-    gap:16px;
+    gap:calc(var(--button-size) / 4);
 
 }
 
 
 button{
 
-    width:60px;
+    width:var(--button-size);
 
-    height:60px;
+    height:var(--button-size);
 
-    font-size:2rem;
+    font-size:calc(var(--button-size) / 2);
 
     border:none;
 
@@ -179,24 +157,7 @@ button:hover{
    7 szegmenses próba
 ===================================================== */
 
-.sevenSegment{
 
-    font-family: "Courier New", monospace;
-
-    font-size: 14rem;
-
-    font-weight: 900;
-
-    letter-spacing: 14px;
-
-    color:#2f7cff;
-
-    text-shadow:
-        0 0 8px rgba(47,124,255,.5),
-        0 0 18px rgba(47,124,255,.4),
-        0 0 35px rgba(47,124,255,.3);
-
-}
 /* ===========================
    Projektor mód
 =========================== */

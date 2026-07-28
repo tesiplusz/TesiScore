@@ -25,7 +25,12 @@ export class SevenSegmentDisplay {
             options.offColor ||"#050B16";
             this.glow =
     options.glow ?? true;
-
+this.parent.style.display = "flex";
+this.parent.style.flexWrap = "nowrap";
+this.parent.style.justifyContent = "center";
+this.parent.style.alignItems = "center";
+this.parent.style.gap = "4px";
+this.parent.style.minWidth = "0";
         this.parent.innerHTML = "";
 
         this.items = [];
@@ -33,9 +38,6 @@ export class SevenSegmentDisplay {
         for (let i = 0; i < this.digits; i++) {
 
             const div = document.createElement("div");
-
-            div.style.display = "inline-block";
-            div.style.marginRight = "4px";
 
             this.parent.appendChild(div);
 

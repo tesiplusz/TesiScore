@@ -11,6 +11,7 @@ import { SportManager } from "./sportManager.js";
 import { Volleyball } from "./sports/volleyball.js";
 import { SimpleScore } from "./sports/simpleScore.js";
 import { ThemeManager } from "./themeManager.js";
+import { UiScale } from "./uiScale.js";
 
 const board = new Scoreboard();
 const timer = new Timer();
@@ -23,8 +24,7 @@ const sports = {
     volleyball: new Volleyball(board)
     
 };
-const themeManager =
-    new ThemeManager();
+const themeManager = new ThemeManager();
     document.addEventListener(
     "themeChanged",
     (event) => {
@@ -50,6 +50,7 @@ new SettingsPanel(
 );
 new KeyboardControls(board, timer, history);
 new Fullscreen();
+new UiScale();
 
 
 //==============================
@@ -59,7 +60,8 @@ new Fullscreen();
 const sportSelect = document.getElementById("sportSelect");
 const volleyballSettings =
     document.getElementById("volleyballSettings");
-    const leftSets =
+
+const leftSets =
     document.getElementById("leftSets");
 
 const rightSets =
