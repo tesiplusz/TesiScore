@@ -50,7 +50,7 @@
     font-weight:700;
     letter-spacing:3px;
 
-    margin-top:-35px;
+    margin-top:-24px;
     margin-bottom:42px;
 
     opacity:.95;
@@ -70,6 +70,22 @@
 #rightScore{
 
     color:#FF4040;
+  
+    /* Bal szett */
+#leftSets{
+
+    color:#BFC6D8;
+    border-color:#2F80FF;
+
+}
+
+/* Jobb szett */
+#rightSets{
+
+    color:#BFC6D8;
+    border-color:#FF4040;
+
+}
 
 }
 
@@ -111,8 +127,9 @@
 height:var(--sets-height);
 
     margin-bottom:42px;
+    margin-top:-20px;
 
-    border:2px solid #D8D8D8;
+   border:2px solid;
 
     border-radius:12px;
 
@@ -130,6 +147,13 @@ height:var(--sets-height);
 
     transition:.3s;
 
+}
+#leftSets{
+    border-color:#2F80FF;
+}
+
+#rightSets{
+    border-color:#FF4040;
 }
 /* ==========================
    Idő kijelző

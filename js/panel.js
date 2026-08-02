@@ -141,20 +141,42 @@ this.themeManager.setTheme(
         // Idő kijelzése
         // -----------------------
 
-        const showTimer =
-            document.getElementById("showTimer");
+const showTimer =
+    document.getElementById("showTimer");
 
-        const timerArea =
-            document.getElementById("timerArea");
+const timerArea =
+    document.getElementById("timerArea");
 
-        if (showTimer) {
+const startStop =
+    document.getElementById("startStop");
 
-            timerArea.style.display =
-                showTimer.checked
-                    ? ""
-                    : "none";
+const reset =
+    document.getElementById("reset");
 
-        }
+if (showTimer) {
+
+const showTimer =
+    document.getElementById("showTimer");
+
+const timerArea =
+    document.getElementById("timerArea");
+
+const startStop =
+    document.getElementById("startStop");
+
+if (showTimer) {
+
+    const visible = showTimer.checked;
+
+    timerArea.style.display =
+        visible ? "" : "none";
+
+    startStop.style.display =
+        visible ? "" : "none";
+
+}
+
+}
 
     }
 
