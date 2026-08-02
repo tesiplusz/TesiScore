@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/scoreboard.css">
     <link rel="stylesheet" href="css/panel.css">
+        <link rel="stylesheet" href="css/molkky.css">
 </head>
 
 <body>
@@ -93,9 +94,71 @@
         </div>
 
     </footer>
+    
+    <div id="molkkyView" hidden>
+
+    <main id="molkkyBoard">
+
+        <div class="molkkyHeader">
+
+            <div>Játékos</div>
+            <div>Dobások</div>
+            <div>Pont</div>
+
+        </div>
+
+        <div id="molkkyPlayers">
+
+            <!-- Ide kerülnek majd a játékosok -->
+
+        </div>
+
+        <div id="molkkyButtons">
+
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>10</button>
+            <button>11</button>
+            <button>12</button>
+
+            <button class="missButton">X</button>
+
+            <button id="molkkyUndo">↶ Undo</button>
+
+        </div>
+
+    </main>
+
+</div>
     <aside id="settingsPanel">
 
     <h2>Beállítások</h2>
+
+<label for="sportSelect">
+    Sport
+</label>
+
+<select id="sportSelect">
+
+    <option value="simple" selected>
+        Egyszerű pontszámláló
+    </option>
+
+    <option value="volleyball">
+        Röplabda
+    </option>
+
+</select>
+
+<hr>
 
     <label for="ln">Bal csapat</label>
     <input
@@ -159,23 +222,7 @@
     </label>
 
     <hr>
-
-    <label for="sportSelect">
-        Sport
-    </label>
-
-   <select id="sportSelect">
-
-   <option value="simple" selected>
-    🏅 Egyszerű pontszámláló
-</option>
-
-<option value="volleyball">
-    🏐 Röplabda
-</option>
-
-</select>
-<hr>
+   
 
 <h3>Megjelenés</h3>
 

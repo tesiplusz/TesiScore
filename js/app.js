@@ -12,6 +12,7 @@ import { Volleyball } from "./sports/volleyball.js";
 import { SimpleScore } from "./sports/simpleScore.js";
 import { ThemeManager } from "./themeManager.js";
 import { UiScale } from "./uiScale.js";
+import { Molkky } from "./sports/molkky.js";
 
 const board = new Scoreboard();
 const timer = new Timer();
@@ -21,8 +22,8 @@ const sportManager = new SportManager(timer);
 
 const sports = {
     simple: new SimpleScore(board),
-    volleyball: new Volleyball(board)
-    
+    volleyball: new Volleyball(board),
+    molkky: new Molkky(board)
 };
 const themeManager = new ThemeManager();
     document.addEventListener(
@@ -66,9 +67,14 @@ const leftSets =
 
 const rightSets =
     document.getElementById("rightSets");
-    function updateSportUI(sport) {
+
+const molkkyView =
+    document.getElementById("molkkyView");
+   function updateSportUI(sport) {
+    console.log("updateSportUI:", sport);
 
     const volleyballMode = sport === "volleyball";
+    const molkkyMode = sport === "molkky";
 
     volleyballSettings.style.display =
         volleyballMode ? "block" : "none";
@@ -79,6 +85,12 @@ const rightSets =
     rightSets.style.display =
         volleyballMode ? "" : "none";
 
+    document.getElementById("scoreboard").hidden = molkkyMode;
+    document.getElementById("timerArea").hidden = molkkyMode;
+    document.getElementById("controls").hidden = molkkyMode;
+    document.getElementById("matchMessage").hidden = molkkyMode;
+
+    molkkyView.hidden = !molkkyMode;
 }
 
 sportSelect.addEventListener("change", () => {
