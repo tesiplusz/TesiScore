@@ -45,11 +45,16 @@
 
 /* Csapatnevek */
 .teamName{
+
     font-size:var(--team-font-size);
     font-weight:700;
     letter-spacing:3px;
-    margin-bottom:30px;
-    opacity:.9;
+
+    margin-top:-35px;
+    margin-bottom:42px;
+
+    opacity:.95;
+
 }
 
 /* Pontszámok */
