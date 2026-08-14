@@ -23,12 +23,23 @@ this.rightDisplay = new SevenSegmentDisplay(rightElement, {
 
     }
 
-    setColors(leftColor, rightColor) {
+ setColors(leftColor, rightColor) {
 
-        this.leftDisplay.setColor(leftColor);
-        this.rightDisplay.setColor(rightColor);
+    this.leftDisplay.setColor(leftColor);
+    this.rightDisplay.setColor(rightColor);
 
+    const leftSets = document.getElementById("leftSets");
+    const rightSets = document.getElementById("rightSets");
+
+    if(leftSets){
+        leftSets.style.borderColor = leftColor;
     }
+
+    if(rightSets){
+        rightSets.style.borderColor = rightColor;
+    }
+
+}
 
     setOffColors(leftColor, rightColor) {
 
