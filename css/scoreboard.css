@@ -7,7 +7,7 @@
     --ui-scale: 1;
 
     --digit-width: calc(290px * var(--ui-scale));
-    --team-font-size: calc(2rem * var(--ui-scale));
+    --team-font-size: calc(3rem * var(--ui-scale));
     --timer-font-size: calc(6,5rem * var(--ui-scale));
     --button-size: calc(60px * var(--ui-scale));
 
@@ -173,10 +173,10 @@ height:var(--sets-height);
 
 #timerDisplay{
 
-    font-size:calc(6.5rem * var(--ui-scale));
-    font-weight:900;
+    font-size:calc(6rem * var(--ui-scale));
+    font-weight:800;
 
-   color:#6f7ea1 !important;
+   color:#665301 !important;
 
     letter-spacing:6px;
 
@@ -235,4 +235,14 @@ height:var(--sets-height);
     min-width: 0;
     max-width: 100%;
     flex-shrink: 1;
+}
+
+/* Világos téma */
+body.light #timerDisplay{
+    color:#7e7e7e !important;
+}
+
+/* Sötét téma */
+body.dark #timerDisplay{
+    color:#373219 !important;
 }

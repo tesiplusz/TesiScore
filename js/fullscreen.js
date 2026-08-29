@@ -33,6 +33,12 @@ export class Fullscreen {
 
         document.addEventListener("keydown", (e) => {
 
+            // Szövegmezőben (pl. csapatnév megadásakor)
+            // az F betű maradjon normálisan beírható.
+            if (e.target.matches("input, textarea, select")) {
+                return;
+            }
+
             if (e.key.toLowerCase() === "f") {
 
                 e.preventDefault();
