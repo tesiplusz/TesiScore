@@ -239,10 +239,10 @@ height:var(--sets-height);
 
 /* Világos téma */
 body.light #timerDisplay{
-    color:#7e7e7e !important;
+    color:#707eb3 !important;
 }
 
 /* Sötét téma */
 body.dark #timerDisplay{
-    color:#373219 !important;
+    color:#2c2b29 !important;
 }
