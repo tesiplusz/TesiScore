@@ -44,6 +44,15 @@
 }
 
 /* Csapatnevek */
+/* A csapatnevek mindig semleges színűek: fehér sötét módban, fekete világos módban. */
+body.dark .teamName{
+    color:#ffffff;
+}
+
+body.light .teamName{
+    color:#000000;
+}
+
 .teamName{
 
     font-size:var(--team-font-size);

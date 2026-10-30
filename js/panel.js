@@ -84,6 +84,11 @@ export class SettingsPanel {
         document.getElementById("rn").value =
             this.board.rightName.textContent;
 
+        document.getElementById("leftColor").value =
+            this.board.leftColor;
+        document.getElementById("rightColor").value =
+            this.board.rightColor;
+
         this.panel.style.display = "block";
         document.getElementById("themeSelect").value =
     this.themeManager.getTheme();

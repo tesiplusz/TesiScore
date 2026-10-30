@@ -11,6 +11,14 @@ export class Controls {
     init() {
 
         document
+            .getElementById("swapSides")
+            .addEventListener("click", () => {
+
+                this.board.swapSides();
+
+            });
+
+        document
             .getElementById("leftPlus")
             .addEventListener("click", () => {
 

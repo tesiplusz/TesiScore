@@ -32,6 +32,8 @@ this.display = new DisplayManager(
 
         this.history = null;
         this.sport = null;
+        this.leftColor = localStorage.getItem("leftColor") || "#2F80FF";
+        this.rightColor = localStorage.getItem("rightColor") || "#FF4040";
 
         // ÚJ:
         // Ha true, nem lehet pontot módosítani
@@ -40,10 +42,7 @@ this.display = new DisplayManager(
       this.loadSettings();
 
 // Biztosan állítsuk be a kijelző színeit
-this.setColors(
-    localStorage.getItem("leftColor") || "#2F80FF",
-    localStorage.getItem("rightColor") || "#FF4040"
-);
+this.setColors(this.leftColor, this.rightColor);
 
 this.render();
 
@@ -193,6 +192,40 @@ this.setColors(
 
 }
 
+    // Térfélcsere: a csapatok teljes oldala együtt mozog.
+    swapSides() {
+
+        [this.left, this.right] = [this.right, this.left];
+
+        const leftName = this.leftName.textContent;
+        this.leftName.textContent = this.rightName.textContent;
+        this.rightName.textContent = leftName;
+
+        [this.leftColor, this.rightColor] =
+            [this.rightColor, this.leftColor];
+
+        localStorage.setItem("leftTeam", this.leftName.textContent);
+        localStorage.setItem("rightTeam", this.rightName.textContent);
+        localStorage.setItem("leftColor", this.leftColor);
+        localStorage.setItem("rightColor", this.rightColor);
+
+        // A röplabda szettállása is a csapattal együtt cserélődik.
+        if (this.sport && typeof this.sport.swapSides === "function") {
+            this.sport.swapSides();
+        }
+
+        this.setColors(this.leftColor, this.rightColor);
+        this.render();
+
+        // A beállítópanel következő megnyitásakor is a friss értékek jelenjenek meg.
+        const leftColorSelect = document.getElementById("leftColor");
+        const rightColorSelect = document.getElementById("rightColor");
+        if (leftColorSelect) leftColorSelect.value = this.leftColor;
+        if (rightColorSelect) rightColorSelect.value = this.rightColor;
+
+        if (this.history) this.history.stack = [];
+    }
+
     setHistory(history) {
 
         this.history = history;
@@ -213,12 +246,13 @@ this.setColors(
 
 setColors(leftColor, rightColor) {
 
-    console.log("Bal:", leftColor, "Jobb:", rightColor);
+    this.leftColor = leftColor;
+    this.rightColor = rightColor;
 
-    this.display.setColors(
-        leftColor,
-        rightColor
-    );
+    this.display.setColors(leftColor, rightColor);
+
+    // A csapatnevek színét a megjelenítési téma határozza meg.
+    // A csapatok saját színe csak az eredményjelző számokra vonatkozik.
 
 }
 setTheme(themeName) {

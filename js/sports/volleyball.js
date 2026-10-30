@@ -168,6 +168,15 @@ newSet() {
     }
 
 }
+    swapSides() {
+
+        [this.leftSets, this.rightSets] =
+            [this.rightSets, this.leftSets];
+
+        this.renderSets();
+
+    }
+
     renderSets() {
 
         this.leftSetsDisplay.textContent =
